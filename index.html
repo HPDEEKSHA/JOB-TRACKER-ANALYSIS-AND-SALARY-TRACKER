@@ -1,10 +1,43 @@
 <!DOCTYPE html>
-<html>
 <head>
     <title>Job Tracker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
 </head>
+
 <body>
+
     <h1>Job Tracker Analysis and Salary Tracker</h1>
-    <p>Welcome to my website.</p>
-</body>
-</html>
+
+    <h2>Salary Calculator</h2>
+
+    <input type="number" id="salary" placeholder="Enter Monthly Salary">
+
+    <br><br>
+
+    <button onclick="calculateSalary()">
+        Calculate Yearly Salary
+    </button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateSalary() {
+            let monthlySalary =
+                document.getElementById("salary").value;
+
+            let yearlySalary = monthlySalary * 12;
+
+            document.getElementById("result").innerHTML =
+                "Yearly Salary: ₹" + yearlySalary;
+        }
+    </script>
+
+</body
