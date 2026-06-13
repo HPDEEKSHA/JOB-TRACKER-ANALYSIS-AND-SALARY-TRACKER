@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <head>
     <title>Job Tracker</title>
 
@@ -9,10 +10,38 @@
             text-align: center;
             padding: 30px;
         }
+        nav a{
+            color: blue;
+            text-decoration: none;
+            margin: 15px;
+        }
+
+        input, button{
+            padding: 10px;
+            margin: 5px;
+        }
+        table{
+    margin: auto;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+th{
+    background-color: lightblue;
+}
     </style>
 </head>
-
 <body>
+    <nav>
+    <a href="#salary">Salary Analysis</a> |
+    <a href="#jobs">Job Listings</a> |
+    <a href="#skills">Skills Analysis</a>
+</nav>
 
     <h1>Job Tracker Analysis and Salary Tracker</h1>
 
@@ -21,13 +50,55 @@
     <input type="number" id="salary" placeholder="Enter Monthly Salary">
 
     <br><br>
-
     <button onclick="calculateSalary()">
         Calculate Yearly Salary
     </button>
 
     <h3 id="result"></h3>
+    <h2 id="jobs">Job Search</h2>
 
+<input type="text" id="role" placeholder="Enter Job Role">
+
+<button onclick="searchJob()">Search</button>
+
+<p id="jobResult"></p>
+<h2 id="skills">Top Skills in Demand</h2>
+
+<ul>
+    <li>Python</li>
+    <li>SQL</li>
+    <li>Machine Learning</li>
+    <li>Data Analysis</li>
+    <li>Artificial Intelligence</li>
+</ul>
+    <h2>Job Listings</h2>
+
+<table>
+    <tr>
+        <th>Role</th>
+        <th>Location</th>
+        <th>Salary</th>
+    </tr>
+
+    <tr>
+        <td>Data Scientist</td>
+        <td>Bangalore</td>
+        <td>₹8 LPA</td>
+    </tr>
+
+    <tr>
+        <td>AI Engineer</td>
+        <td>Hyderabad</td>
+        <td>₹12 LPA</td>
+    </tr>
+
+    <tr>
+        <td>Software Engineer</td>
+        <td>Pune</td>
+        <td>₹10 LPA</td>
+    </tr>
+
+</table>
     <script>
         function calculateSalary() {
             let monthlySalary =
@@ -38,6 +109,21 @@
             document.getElementById("result").innerHTML =
                 "Yearly Salary: ₹" + yearlySalary;
         }
+function searchJob() {       
+   let role = document.getElementById("role").value.toLowerCase();
+    if(role === "data scientist"){
+        document.getElementById("jobResult").innerHTML =
+        "Salary: ₹8 LPA | Location: Bangalore";
+    }
+    else if(role === "ai engineer"){
+        document.getElementById("jobResult").innerHTML =
+        "Salary: ₹12 LPA | Location: Hyderabad";
+    }
+    else{
+        document.getElementById("jobResult").innerHTML =
+        "Job not found";
+    }
+}
     </script>
-
-</body
+</body>
+</html>
